@@ -1,4 +1,5 @@
 ﻿using CookDo.Core;
+using CookDo.Core.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -26,28 +27,33 @@ namespace CookDoAPIMongoDb.Controllers
         }
 
         // GET api/<IngredientController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
+        [HttpGet("{id}", Name = "GetIngredient")]
+        public IActionResult GetIngredient(string id)
         {
-            return "value";
+            return Ok(_ingredientRepository.GetIngredient(id));
         }
 
         // POST api/<IngredientController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post(Ingredient ingredient)
         {
+            _ingredientRepository.AddIngredient(ingredient);
+            return CreatedAtRoute("GetIngredient", new { id = ingredient.Id }, ingredient);
         }
 
         // PUT api/<IngredientController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public IActionResult Put(Ingredient ingredient)
         {
+            return Ok(_ingredientRepository.UpdateIngredient(ingredient));
         }
 
         // DELETE api/<IngredientController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public ActionResult Delete(string id)
         {
+            _ingredientRepository.DeleteIngredient(id);
+            return NoContent();
         }
     }
 }

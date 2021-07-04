@@ -12,7 +12,7 @@ namespace CookDo.Core
         {
             var client = new MongoClient(cookDoConfig.Value.Connection_String);
             var database = client.GetDatabase(cookDoConfig.Value.Database_Name);
-            _ingredients = database.GetCollection<Ingredient>(cookDoConfig.Value.Ingrediets_Collection_Name);
+            _ingredients = database.GetCollection<Ingredient>(cookDoConfig.Value.INGREDIENTS_COLLECTION_NAME);
         }
 
         public IMongoCollection<Ingredient> GetIngredientsCollection() => _ingredients;

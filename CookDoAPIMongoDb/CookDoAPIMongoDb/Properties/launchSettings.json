@@ -15,8 +15,8 @@
       "launchUrl": "swagger",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DATABASE_NAME": "NAME OF DATA BASE",
-        "INGREDIENTS_COLLECTION_NAME": "TABLE NAME"
+        "DATABASE_NAME": "CookDoDb",
+        "INGREDIENTS_COLLECTION_NAME": "Ingredients"
       }
     },
     "CookDoAPIMongoDb": {
@@ -27,8 +27,8 @@
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
-        "DATABASE_NAME": "NAME OF DATA BASE",
-        "INGREDIENTS_COLLECTION_NAME": "TABLE NAME" 
+        "DATABASE_NAME": "CookDoDb",
+        "INGREDIENTS_COLLECTION_NAME": "Ingredients"
       }
     }
   }
